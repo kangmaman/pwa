@@ -1,0 +1,16 @@
+version: '3'
+
+#jika menggunakan docker run, maka syntaxnya adalah sbb:
+#$ docker run -dit --rm --name container_apache2 -p 8080:80 -v "$PWD":/usr/local/apache2/htdocs/ image_apache2
+#
+#   $PWD =  /Users/kangmaman/devel/pwa/02:/usr/local/apache2/htdocs/
+
+services:
+  web: 
+    image: "httpd:2.4"
+    container_name: container_apache2
+    ports:
+      - "8080:80"
+    volumes:
+      - $PWD:/usr/local/apache2/htdocs/
+
